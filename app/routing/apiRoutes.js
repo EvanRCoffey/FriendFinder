@@ -37,7 +37,6 @@ module.exports = function(app) {
     // Create New Friend - takes in JSON input
     var newFriend = req.body;
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
-    console.log(newFriend);
 
     //Calculates difference between newFriend and each saved friend
     var differenceCounter = 0;

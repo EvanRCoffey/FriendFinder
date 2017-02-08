@@ -1,0 +1,33 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "SHOULD SURVEY SUBMISSION BE SAVING ANYTHING TO friends.js?\r Right now, all submissions are being saved to the server and are lost as soon as the server restarts",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "6.9.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/REvanCof/FriendFinder.git"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "R. Evan Coffey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/REvanCof/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/REvanCof/FriendFinder#readme"
+}
