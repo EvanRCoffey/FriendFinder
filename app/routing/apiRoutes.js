@@ -6,6 +6,10 @@
 
 var friendsData = require("../data/friends");
 
+// DATA
+// =============================================================
+var friends = [];
+
 // ===============================================================================
 // ROUTING
 // ===============================================================================
@@ -29,21 +33,48 @@ module.exports = function(app) {
   // Then the server saves the data to the friendsData array)
   // ---------------------------------------------------------------------------
 
-  app.post("/api/tables", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-   	
-   	//This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic. 
-  
-  });
+  app.post("/api/friends", function(req, res) { 
+    // Create New Friend - takes in JSON input
+    var newFriend = req.body;
+    newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
+    console.log(newFriend);
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
+    //Calculates difference between newFriend and each saved friend
+    var differenceCounter = 0;
+    var smallestDifference = 9000;
+    var bestMatch = 0;
+    for (var i = 0; i<friends.length; i++) {
+
+      for (var j = 0; j<friends[i].scores.length; j++) {
+        if (newFriend.scores[j] < friends[i].scores[j]) {
+          differenceCounter += (friends[i].scores[j] - newFriend.scores[j])
+        }
+        else if (newFriend.scores[j] > friends[i].scores[j]) {
+          differenceCounter += (newFriend.scores[j] - friends[i].scores[j])
+        }
+      }
+
+      console.log("differenceCounter = " + differenceCounter);
+      console.log("smallestDifference = " + smallestDifference);
+      if (differenceCounter <= smallestDifference) {
+        smallestDifference = differenceCounter;
+        bestMatch = i;
+      }
+      differenceCounter = 0;
+
+    }
+
+    console.log("Best match is at index " + bestMatch + " of 'friends' array");
+
+    friends.push(newFriend);
+    console.log(friends);
+    res.json(newFriend);
+
+  });
 
   app.post("/api/clear", function() {
     // Empty out the arrays of data
-    friendsData = [];
-    console.log(friendsData);
+    friends = [];
+    console.log(friends);
   });
 };

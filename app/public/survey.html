@@ -2,91 +2,129 @@
 <html>
 <head>
 	<title>Survey - Friend Finder</title>
-	<!-- Latest compiled and minified CSS -->
+	<!--jQuery link-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="
-	sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery.js"></script>
+
 </head>
 <body>
 
 <div class="container">
 
-	<h1>Survey Questions</h1><hr>
-	<h2>About You</h2>
-
-	<h4>Name (Required)</h4>
-	<input type="text" name="" id="name" class="form-control" required="">
-
-	<h4>Link to Photo Image (Required)</h4>
-	<input type="text" name="" id="photo" class="form-control" required=""><hr>
-
-	<h3><strong>Question 1</strong></h3>
-	<h4>I would rather stay in and watch a movie than get dressed up and go to a party</h4>
-
-	<h3><strong>Question 2</strong></h3>
-	<h4>I'm a sports addict</h4>
-
-	<h3><strong>Question 3</strong></h3>
-	<h4>I read the news every day</h4>
-
-	<h3><strong>Question 4</strong></h3>
-	<h4>I love to cook</h4>
-
-	<h3><strong>Question 5</strong></h3>
-	<h4>I'm pretty laid-back</h4>
-
-	<h3><strong>Question 6</strong></h3>
-	<h4>I'm a morning person</h4>
-
-	<h3><strong>Question 7</strong></h3>
-	<h4>I'm a religious person</h4>
-
-	<h3><strong>Question 8</strong></h3>
-	<h4>I'm a "glass half full" person</h4>
-
-	<h3><strong>Question 9</strong></h3>
-	<h4>Some people eat to live, but I live to eat</h4>
+	<form name="myform" action="http://www.mydomain.com/myformhandler.cgi" method="POST">
 	
-	<h3><strong>Question 10</strong></h3>
-	<h4>I think web developers are sexy</h4>
+		<h1>Survey Questions</h1><hr>
+		<h2>About You</h2>
 
+		<h4>Name (Required)</h4>
+		<input type="text" name="myName" id="name" class="form-control" required="">
 
-<!-- * You should save the data in your app as an array of objects. Each of these objects should roughly follow the format below.
+		<h4>Link to Photo Image (Required)</h4>
+		<input type="text" name="myPhoto" id="photo" class="form-control" required=""><hr>
 
-```
-{
-  "name":"Ahmed",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-  "scores":[
-     5,
-     1,
-     4,
-     4,
-     5,
-     1,
-     2,
-     5,
-     4,
-     1
-   ]
-}
-```
+		<h3><strong>Question 1</strong></h3>
+		<h4>I would rather stay in and watch a movie than get dressed up and go to a party</h4>
+		<select name="mydropdown1" id="mydropdown1">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 2</strong></h3>
+		<h4>I'm a sports addict</h4>
+		<select name="mydropdown2" id="mydropdown2">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 3</strong></h3>
+		<h4>I read the news every day</h4>
+		<select name="mydropdown3" id="mydropdown3">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 4</strong></h3>
+		<h4>I love to cook</h4>
+		<select name="mydropdown4" id="mydropdown4">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 5</strong></h3>
+		<h4>I'm pretty laid-back</h4>
+		<select name="mydropdown5" id="mydropdown5">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 6</strong></h3>
+		<h4>I'm a morning person</h4>
+		<select name="mydropdown6" id="mydropdown6">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 7</strong></h3>
+		<h4>I'm a religious person</h4>
+		<select name="mydropdown7" id="mydropdown7">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 8</strong></h3>
+		<h4>I'm a "glass half full" person</h4>
+		<select name="mydropdown8" id="mydropdown8">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+
+		<h3><strong>Question 9</strong></h3>
+		<h4>Some people eat to live, but I live to eat</h4>
+		<select name="mydropdown9" id="mydropdown9">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
 		
-* Determine the user's most compatible friend using the following as a guide:
-* Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
-* With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
-	* Example: 
-		* User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
-		* User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
-		* Total Difference: **2 + 1 + 2 =** ***5***
-* Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on. 
-* The closest match will be the user with the least amount of difference.
+		<h3><strong>Question 10</strong></h3>
+		<h4>I think web developers are sexy</h4>
+		<select name="mydropdown10" id="mydropdown10">
+			<option value="1">1 (Strongly Disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly Agree)</option>
+		</select>
+	</form>
 
-* Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-* The modal should display both the name and picture of the closest match.  -->
-	
-
+	<br><button type="button" class="btn btn-default" style="background-color: blue; color: white" onclick="submitSurvey()">Submit Survey</button>
 
 	<hr>
 	<a href="../api/friends">API Friends List </a>|
@@ -94,6 +132,72 @@
 
 </div>
 
+	<!-- Modal -->
+	<div id="resultsModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h2 class="modal-title"><strong>Best Match</strong></h2>
+	      </div>
+	      <div class="modal-body">
+	        <h2 id="matchName">Default</h2>
+	        <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="default">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+<script type="text/javascript">
+
+//Function IS being called on button click - saved scores as separate variables, for now
+function submitSurvey() {
+	event.preventDefault();
+	
+	var scoreArray = [];
+	scoreArray.push($("#mydropdown1").val().trim());
+	scoreArray.push($("#mydropdown2").val().trim());
+	scoreArray.push($("#mydropdown3").val().trim());
+	scoreArray.push($("#mydropdown4").val().trim());
+	scoreArray.push($("#mydropdown5").val().trim());
+	scoreArray.push($("#mydropdown6").val().trim());
+	scoreArray.push($("#mydropdown7").val().trim());
+	scoreArray.push($("#mydropdown8").val().trim());
+	scoreArray.push($("#mydropdown9").val().trim());
+	scoreArray.push($("#mydropdown10").val().trim());
+
+    var newFriend = {
+        name: $("#name").val().trim(),
+        photo: $("#photo").val().trim(),
+        scores: scoreArray
+    };
+
+    // Grab the URL of the website
+	var currentURL = window.location.origin;
+
+	// AJAX post the data to the friends API. 
+	$.post(currentURL + "/api/friends", newFriend, function(data){
+
+		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+		$("#matchName").text(data.name);
+		$('#matchImg').attr("src", data.photo);
+
+    	// Show the modal with the best match 
+    	$("#resultsModal").modal('toggle');
+
+    	console.log(data);
+        alert("Adding friend...");
+
+	});
+}
+
+</script>
 
 </body>
 </html>
