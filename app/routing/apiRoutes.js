@@ -6,9 +6,15 @@
 
 var friendsData = require("../data/friends");
 
+// ===============================================================================
+// DEPENDENCIES
+// We need to include the path package to get the correct file path for our html
+// ===============================================================================
+var path = require("path");
+
 // DATA
-// =============================================================
-var friends = [];
+  // =============================================================
+  var friends = [];
 
 // ===============================================================================
 // ROUTING
@@ -22,7 +28,7 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.get("/api/friends", function(req, res) {
-    res.json(friendsData);
+    res.json(friends);
   });
 
   // API POST Requests
@@ -52,9 +58,7 @@ module.exports = function(app) {
           differenceCounter += (newFriend.scores[j] - friends[i].scores[j])
         }
       }
-
-      console.log("differenceCounter = " + differenceCounter);
-      console.log("smallestDifference = " + smallestDifference);
+      
       if (differenceCounter <= smallestDifference) {
         smallestDifference = differenceCounter;
         bestMatch = i;
@@ -63,17 +67,31 @@ module.exports = function(app) {
 
     }
 
-    console.log("Best match is at index " + bestMatch + " of 'friends' array");
-
     friends.push(newFriend);
-    console.log(friends);
-    res.json(newFriend);
 
+    if (friends.length > 1) {
+      var returnedFriend = {
+        name: friends[bestMatch].name,
+        photo: friends[bestMatch].photo,
+        scores: friends[bestMatch].scores
+      }
+    }
+    else {
+      var returnedFriend = {
+        name: "First Entry",
+        photo: newFriend.photo,
+        scores: newFriend.scores
+      }
+      console.log("First entry!")
+    }
+
+    res.json(returnedFriend);
   });
 
-  app.post("/api/clear", function() {
+  app.get("/api/clear", function(req, res) {
     // Empty out the arrays of data
     friends = [];
     console.log(friends);
+    res.sendFile(path.join(__dirname, "/../public/home.html"));
   });
 };
